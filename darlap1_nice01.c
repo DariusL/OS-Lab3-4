@@ -16,8 +16,8 @@
 
 int main(int argc, char *argv[]){
 	int nice;
-	int start;
 	int startc, endc;
+	int i;
 	float t;
 	printf( "(C) 2013 Lapunas Darius, %s\n", __FILE__ );
 	if(argc < 2){
@@ -26,11 +26,10 @@ int main(int argc, char *argv[]){
 	}
 	nice = atoi(argv[1]);
 	setpriority(PRIO_PROCESS, 0, nice);
-	start = time(NULL);
 	startc = clock();
-	while(time(NULL) - start < 5);
+	for(i = INT_MIN; i < INT_MAX; i++);
 	endc = clock();
 	t = (endc - startc)/(float)CLOCKS_PER_SEC;
-	printf("5s ciklas truko %f sekundes\n", t);
+	printf("Ciklas truko %f sekundes\n", t);
 	return 0;
 }
